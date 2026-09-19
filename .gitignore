@@ -1,0 +1,25 @@
+# Python environments and caches
+.venv/
+myenv/
+__pycache__/
+*.py[cod]
+
+# Node dependencies and build output
+node_modules/
+dist/
+
+# Downloaded datasets and generated audio
+clean/
+cleaned_data/
+data/
+noise/
+*.wav
+*.zip
+
+# Generated reports and logs
+logs/
+
+# Local environment files
+.env
+.env.*
+!.env.example
