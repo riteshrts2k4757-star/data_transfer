@@ -36,3 +36,18 @@ Reports and rejection logs are written to `logs/`. The final metadata is
 ```powershell
 myenv\Scripts\python.exe scripts\analyze_dataset.py
 ```
+
+## Non-destructive dataset audit
+
+Run the reproducible audit before retraining. It reads `data/` without changing
+it, writes reports to `dataset_audit/`, copies only `KEEP` pairs to
+`dataset_corrected/`, and places a limited set of `REVIEW` pairs in
+`dataset_audit/manual_review/`:
+
+```powershell
+.venv\Scripts\python.exe scripts\audit_dataset.py --input data --audit-output dataset_audit --corrected-output dataset_corrected
+```
+
+The audit does not denoise training inputs, retrain the model, or overwrite
+`best_model.pth` or `last_model.pth`. Review `dataset_audit/audit_report.html`
+and the CSV reports before using `dataset_corrected/` for training.

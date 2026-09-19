@@ -18,6 +18,8 @@ noise/
 
 # Generated reports and logs
 logs/
+dataset_audit/
+dataset_corrected/
 
 # Local environment files
 .env
